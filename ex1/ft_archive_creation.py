@@ -16,6 +16,13 @@ def ft_archive_creation(file: str) -> None:
     if not text.endswith('\n'):
         transformed += '\n'
     print(transformed)
+    new_name = input("Enter new file name (or empty): ")
+    if new_name != '':
+        print(f"Saving data to {new_name}")
+        new_file: IO[str] = open(new_name, mode='w', encoding="utf-8")
+        new_file.write(transformed)
+        print(f"Data saved in file {new_name}.")
+        new_file.close()
 
 if __name__ == "__main__":
     print("=== Cyber Archives Recovery ===")
